@@ -8,7 +8,7 @@ int main()
 	scanf("%u",&n);
 	vector<bool>isPrime(n,1);//lim ~8e6?
 
-	for(unsigned int i=2;i*i<n;++i){
+	for(unsigned int i=2;i*i<n&&isPrime[n]==1;++i){
 		if(isPrime[i]==0) continue;
 		isPrime[i]=0;
 		for(unsigned int j=i*i;j<n;j+=i) isPrime[j]=0;
