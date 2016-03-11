@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <cstdlib>
 using namespace std;
 
 #define heapify() for(int i=floor(int(heap.size())/2)-1;i>=0;--i)Heapify(heap,i)
@@ -68,37 +69,44 @@ int main()
 		heap.push_back(j);
 	}
 	buildHeap(heap);
-	printHeap();
-
-	printf("Input number of mode:\n"
-			"0- Insert\n"
-			"1- Extract\n"
-			"2- Sort\n"
-			"You selected: Mode ");
-	scanf("%d",&m);
-	switch(m){
-		case 0:
-			printf("- Insert\n");
-			scanf("%d",&i);
-			heapInsert(heap,i);
-			break;
-		case 2:
-			printf("- Sort\n");
-			heapSort(heap,heap.size()-1);
-			break;
-		default:
-			printf("Unknown. Please stand by.\n");
-			for(int i=0;i<10;++i)
-				for(int j=0;j<10;++j)
-					printf("%d%d%%/100%% (%d)\n",i,j,ack(i,j));
-			break;
-		case 1:
-			printf("- Extract\n");
-			int e=heapExtract(heap);
-			printf("e: %d\n",e);
+    printHeap();
+    
+	while(1){
+    	printf("Input number of mode:\n"
+    			"0- Insert\n"
+    			"1- Extract\n"
+    			"2- Sort\n"
+    			"3- Exit\n"
+    			"You selected: Mode ");
+    	scanf("%d",&m);
+    	switch(m){
+    		case 0:
+    			printf("Insert\n");
+    			scanf("%d",&i);
+    			heapInsert(heap,i);
+    			break;
+    		case 2:
+    			printf("Sort\n");
+    			heapSort(heap,heap.size()-1);
+    			break;
+    		case 3:
+    		    printf("Exiting...\n");
+    		    return 0;
+    		    printf("Well this shouldn't happen");
+    		default:
+    			printf("Unknown. Please stand by.\n");
+    			for(int i=0;i<10;++i)
+    				for(int j=0;j<10;++j)
+    					printf("%d%d%%/100%% (%d)\n",i,j,ack(i,j));
+    			break;
+    		case 1:
+    			printf("- Extract\n");
+    			int e=heapExtract(heap);
+    			printf("e: %d\n",e);
+    	}
+    	printHeap();
+    	cin.get();
 	}
-	printHeap();
-	cin.get();
 
    return 0;
 }
