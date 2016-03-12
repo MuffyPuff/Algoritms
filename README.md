@@ -1,1 +1,4 @@
-# Stuff I had fun with.
+# ToDo:
+-Merge sort  
+-Quick sort  
+-That damn flip solver
